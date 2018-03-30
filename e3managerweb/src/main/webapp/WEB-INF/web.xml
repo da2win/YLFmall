@@ -13,7 +13,7 @@
         <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
     <!-- 加载spring容器 -->
-   <!-- <context-param>
+    <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring/applicationContext-*.xml</param-value>
     </context-param>
@@ -21,7 +21,7 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-    &lt;!&ndash; 解决post乱码 &ndash;&gt;
+    <!-- 解决post乱码 -->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -36,11 +36,11 @@
     </filter-mapping>
 
 
-    &lt;!&ndash; springmvc的前端控制器 &ndash;&gt;
+    <!-- springmvc的前端控制器 -->
     <servlet>
         <servlet-name>e3-manager</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        &lt;!&ndash; contextConfigLocation不是必须的， 如果不配置contextConfigLocation， springmvc的配置文件默认在：WEB-INF/servlet的name+"-servlet.xml" &ndash;&gt;
+        <!-- contextConfigLocation不是必须的， 如果不配置contextConfigLocation， springmvc的配置文件默认在：WEB-INF/servlet的name+"-servlet.xml" -->
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:spring/springmvc.xml</param-value>
@@ -50,5 +50,5 @@
     <servlet-mapping>
         <servlet-name>e3-manager</servlet-name>
         <url-pattern>/</url-pattern>
-    </servlet-mapping>-->
+    </servlet-mapping>
 </web-app>
