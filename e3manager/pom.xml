@@ -16,7 +16,6 @@
         <module>../e3managerdao</module>
         <module>../e3managerinterface</module>
         <module>../e3managerservice</module>
-        <module>../e3managerweb</module>
     </modules>
 
     <dependencies>
@@ -35,8 +34,8 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <configuration>
                     <path>/</path>
-                    <port>8080</port>
-                </configuration>
+                        <port>8080</port>
+                    </configuration>
             </plugin>
         </plugins>
     </build>

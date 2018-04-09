@@ -8,6 +8,7 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../e3parent/pom.xml</relativePath>
     </parent>
+    <version>1.0-SNAPSHOT</version>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>e3-common</artifactId>
     <packaging>jar</packaging>
@@ -37,14 +38,6 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-        </dependency>
         <!-- httpclient -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
@@ -65,6 +58,12 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+        <!-- FastDFS -->
+        <dependency>
+            <groupId>fastdfs_client</groupId>
+            <artifactId>fastdfs_client</artifactId>
+            <version>1.25</version>
         </dependency>
     </dependencies>
 </project>
