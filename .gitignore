@@ -12,3 +12,5 @@ generatorConfig.xml
 *.cache
 *.lock
 /.idea
+/*/target
+/*/*.iml
