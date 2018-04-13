@@ -86,6 +86,11 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.e3mall</groupId>
+            <artifactId>e3-content-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
     <!-- 配置tomcat插件 -->
     <build>
