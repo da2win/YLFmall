@@ -36,6 +36,8 @@ public class SearchController {
         model.addAttribute("recordCount", searchResult.getRecordCount());
         model.addAttribute("itemList", searchResult.getItemList());
 
+        // Exception test.
+        //int a = 1/0;
         // return logical view.
         return "search";
     }

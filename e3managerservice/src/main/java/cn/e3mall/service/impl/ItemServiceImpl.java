@@ -12,8 +12,12 @@ import cn.e3mall.service.ItemService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import javax.jms.*;
 import java.util.Date;
 import java.util.List;
 
@@ -31,10 +35,16 @@ public class ItemServiceImpl implements ItemService{
     @Autowired
     private TbItemDescMapper itemDescMapper;
 
+    @Autowired
+    private JmsTemplate jmsTemplate;
+
+    @Resource
+    private Destination topicDestination;
+
     @Override
     public TbItem getItemById(long itemId) {
         // 根据条件查询
-//        TbItem item = itemMapper.selectByPrimaryKey(itemId);
+        // TbItem item = itemMapper.selectByPrimaryKey(itemId);
         TbItemExample example = new TbItemExample();
         TbItemExample.Criteria criteria = example.createCriteria();
         // 设置查询条件
@@ -68,9 +78,9 @@ public class ItemServiceImpl implements ItemService{
 
     @Override
     public E3Result addItem(TbItem item, String desc) {
-
         // 生成商品id
-        long itemId = IDUtils.genItemId();
+        final long itemId = IDUtils.genItemId();
+
         // 补全item属性
         item.setId(itemId);
         // 1-正常, 2-下架, 3-删除
@@ -88,6 +98,14 @@ public class ItemServiceImpl implements ItemService{
         itemDesc.setCreated(new Date());
         // 向商品描述表插入数据
         itemDescMapper.insert(itemDesc);
+        // Send a Message to add a goods.
+        jmsTemplate.send(topicDestination, new MessageCreator() {
+            @Override
+            public Message createMessage(Session session) throws JMSException {
+                TextMessage textMessage = session.createTextMessage(itemId + "");
+                return textMessage;
+            }
+        });
         // 返回成功
         return E3Result.ok();
     }

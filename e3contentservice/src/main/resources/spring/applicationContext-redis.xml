@@ -44,7 +44,6 @@
                     <constructor-arg name="host" value="192.168.25.130"></constructor-arg>
                     <constructor-arg name="port" value="7006"></constructor-arg>
                 </bean>
-
             </set>
         </constructor-arg>
     </bean>

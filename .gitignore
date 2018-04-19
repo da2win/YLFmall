@@ -14,3 +14,4 @@ generatorConfig.xml
 /.idea
 /*/target
 /*/*.iml
+logs
