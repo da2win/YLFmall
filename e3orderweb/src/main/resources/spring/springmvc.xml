@@ -32,4 +32,5 @@
     <dubbo:registry protocol="zookeeper" address="192.168.25.129:2181"/>
     <dubbo:reference interface="cn.e3mall.cart.service.CartService" id="cartService" />
     <dubbo:reference interface="cn.e3mall.sso.service.TokenService" id="tokenService" />
+    <dubbo:reference interface="cn.e3mall.order.service.OrderService" id="orderService" />
 </beans>
